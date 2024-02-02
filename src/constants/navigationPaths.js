@@ -1,17 +1,17 @@
 /** @format */
 
-const navigationPaths = {
-    home: {
-        label: 'Home',
-        path: '/'
-    },
+export const navigationPaths = {
+	home: {
+		label: 'Home',
+		path: '/',
+	},
 	dashboard: {
 		label: 'Dashboard',
 		path: '/dashboard',
 	},
-    account: {
-        label: 'Account',
-        path: '/account'
-    }
+	account: {
+		label: 'Account',
+		path: '/account',
+	},
 };
-export const navArray = Object.values(navigationPaths)
+export const navArray = Object.values(navigationPaths);

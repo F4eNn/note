@@ -2,20 +2,27 @@
 
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
+import DashboardView from '../views/DashboardView.vue';
+import AccountView from '../views/AccountView.vue';
+import { navigationPaths } from '@/constants/navigationPaths';
 
 const routes = [
 	{
-		path: '/',
-		name: 'home',
+		path: navigationPaths.home.path,
+		name: navigationPaths.home.label,
 		component: HomeView,
 	},
 	{
-		path: '/about',
-		name: 'about',
-		component: () => import('../views/AboutView.vue'),
+		path: navigationPaths.dashboard.path,
+		name: navigationPaths.dashboard.label,
+		component: DashboardView,
+	},
+	{
+		path: navigationPaths.account.path,
+		name: navigationPaths.account.label,
+		component: AccountView,
 	},
 ];
-
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),

@@ -8,12 +8,18 @@
 *::after {
 	box-sizing: border-box;
 	margin: 0;
+	padding: 0;
 	font-weight: normal;
 }
 
 body {
-	background-color: #121212;
+	background-color: #040d12;
 }
-.colors-300 {
-	transition: color 0.3s;
+@layer components {
+	.colors-300 {
+		@apply duration-300 transition-colors;
+	}
+	.active-route {
+		@apply text-green;
+	}
 }
