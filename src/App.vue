@@ -8,4 +8,5 @@ import Navigation from './components/Navigation.vue';
 <template>
 	<Navigation />
 	<RouterView />
+	<notifications group="task" position="top center"  />
 </template>

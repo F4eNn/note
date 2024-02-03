@@ -7,12 +7,17 @@ export const fetchApi = async (path, options = {}) => {
 		headers: {
 			'Content-Type': 'application/json',
 			Authorization: `Bearer ${API_KEY}`,
-			...options,
 		},
+		...options,
 	};
-	const reqUrl = `${BACKEND_URL}${path}`;
+	const reqUrl = `${BACKEND_URL}/api/${path}`;
 
 	try {
-        const res = await fetch (reqUrl, mergedOptions)
-	} catch (error) {}
+		const res = await fetch(reqUrl, mergedOptions);
+		const { data } = await res.json();
+		
+		return { data, response: res };
+	} catch (error) {
+		console.error(error);
+	}
 };

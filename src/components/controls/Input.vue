@@ -49,5 +49,9 @@ const props = defineProps({
 		type: String,
 		default: '',
 	},
+	successMsg: {
+		type: String,
+		default: '',
+	},
 });
 </script>
