@@ -1,6 +1,6 @@
 <!-- @format -->
 
-<template lang="">
+<template>
 	<FormBox
 		@add-new-task="createTasksAndRefresh"
 		:extendClasses="'my-20 flex gap-5 w-2/3 mx-auto'">
@@ -19,18 +19,24 @@ import { ref } from 'vue';
 import FormBox from '@/components/ui/FormBox.vue';
 import Input from '@/components/controls/Input.vue';
 import PrimaryButton from '@/components/controls/PrimaryButton.vue';
-import { notify } from '@kyvg/vue3-notification';
-import { fetchApi } from '@/utils/fetch-api.js';
-import { addNewTask } from '@/components/tasks/taskActions.js';
+import { useTasks } from '@/store/taskStore';
 
 const taskInput = ref('');
 const errorMsg = ref('');
 const successMsg = ref('');
 
+const { addTask } = useTasks();
+
 const createTasksAndRefresh = async () => {
-	const { errorMessage, successMessage } = await addNewTask(taskInput.value);
+	const { errorMessage, successMessage } = await addTask(taskInput.value);
 	errorMsg.value = errorMessage;
 	successMsg.value = successMessage;
-	taskInput.value = ''
+	taskInput.value = '';
+
+	if (!errorMsg.value) {
+		emits('refetch-on-submit');
+	}
 };
+
+const emits = defineEmits(['refetch-on-submit']);
 </script>

@@ -16,7 +16,7 @@ export const fetchApi = async (path, options = {}) => {
 		const res = await fetch(reqUrl, mergedOptions);
 		const { data } = await res.json();
 		
-		return { data, response: res };
+		return { data, res };
 	} catch (error) {
 		console.error(error);
 	}

@@ -13,13 +13,13 @@
 			:placeholder="placeholder"
 			:class="
 				twMerge(
-					'placeholder:text-xs border-md p-2  rounded-sm  outline-none focus:outline-green focus:outline-offset-0',
+					'placeholder:text-xs border-md p-3  rounded-sm  outline-none focus:outline-green focus:outline-offset-0',
 					extendClasses
 				)
 			"
 			@input="e => $emit('update:modelValue', e.target.value)" />
 		<span
-			class="text-red-500 text-sm absolute left-0 -bottom-6"
+			class="text-red text-sm absolute left-0 -bottom-6"
 			v-if="errorMsg"
 			>{{ errorMsg }}
 		</span>
