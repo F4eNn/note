@@ -17,8 +17,6 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-
 import Wrapper from '@/components/ui/Wrapper.vue';
 import TaskForm from '@/components/tasks/TaskForm.vue';
 import TasksList from '@/components/tasks/TasksList.vue';

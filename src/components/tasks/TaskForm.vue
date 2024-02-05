@@ -2,7 +2,7 @@
 
 <template>
 	<FormBox
-		@add-new-task="createTasksAndRefresh"
+		@handle-action="createTasksAndRefresh"
 		:extendClasses="'my-20 flex gap-5 w-2/3 mx-auto'">
 		<Input
 			v-model="taskInput"

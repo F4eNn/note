@@ -18,10 +18,10 @@ const props = defineProps({
 	},
 });
 
-const emits = defineEmits(['add-new-task']);
+const emits = defineEmits(['handle-action']);
 
 const handleSubmit = e => {
 	e.preventDefault();
-	emits('add-new-task');
+	emits('handle-action');
 };
 </script>

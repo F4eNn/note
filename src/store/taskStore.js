@@ -5,7 +5,6 @@ import { validateInputTask } from '@/constants/validation-rules.js';
 import { fetchApi } from '@/utils/fetch-api';
 import { notify } from '@kyvg/vue3-notification';
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
 
 export const useTasks = defineStore('tasks', () => {
 	const tasks = ref([]);
@@ -45,5 +44,16 @@ export const useTasks = defineStore('tasks', () => {
 		}
 	};
 
-	return { getTasks, addTask, tasks, deleteTask };
+	const editTask = async (id, editInput) => {
+		const path = `tasks/${id}`;
+		const options = { method: 'PUT', body: JSON.stringify({ data: { task: editInput } }) };
+		const { res, data } = await fetchApi(path, options);
+
+		if (res.ok) {
+			const indexOfEditedElement = tasks.value.findIndex(task => task.id === id);
+			tasks.value[indexOfEditedElement] = data;
+			notify({ text: 'Modified succesfully', type: 'success', group: 'task' });
+		}
+	};
+	return { getTasks, addTask, tasks, deleteTask, editTask };
 });
