@@ -20,6 +20,7 @@ import FormBox from '@/components/ui/FormBox.vue';
 import Input from '@/components/controls/Input.vue';
 import PrimaryButton from '@/components/controls/PrimaryButton.vue';
 import { useTasks } from '@/store/taskStore';
+import { storeToRefs } from 'pinia';
 
 const taskInput = ref('');
 const errorMsg = ref('');
@@ -31,10 +32,10 @@ const createTasksAndRefresh = async () => {
 	const { errorMessage, successMessage } = await addTask(taskInput.value);
 	errorMsg.value = errorMessage;
 	successMsg.value = successMessage;
-	taskInput.value = '';
 
 	if (!errorMsg.value) {
 		emits('refetch-on-submit');
+		taskInput.value = '';
 	}
 };
 

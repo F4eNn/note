@@ -5,6 +5,7 @@
 		<TaskItem
 			v-for="{ id, attributes } in tasks"
 			:taskContent="attributes.task"
+			:id="id"
 			:key="id" />
 	</Card>
 </template>
@@ -21,6 +22,4 @@ const { getTasks } = store;
 const { tasks } = storeToRefs(store);
 
 await getTasks();
-
-
 </script>

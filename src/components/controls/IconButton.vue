@@ -1,12 +1,13 @@
 <!-- @format -->
 
 <template lang="">
-	<button :class="twMerge('colors-300 p-1', extendClasses)">
+	<button
+		@click="$emit('handle-click')"
+		:class="twMerge('colors-300 p-1', extendClasses)">
 		<slot />
 	</button>
 </template>
 <script setup>
-
 import { twMerge } from 'tailwind-merge';
 
 const props = defineProps({

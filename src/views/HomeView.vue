@@ -18,7 +18,6 @@
 
 <script setup>
 import { onMounted } from 'vue';
-import { storeToRefs } from 'pinia';
 
 import Wrapper from '@/components/ui/Wrapper.vue';
 import TaskForm from '@/components/tasks/TaskForm.vue';
